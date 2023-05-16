@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  padding: 25px;
+}
+
+img{
+  width: 100%;
+  max-width: 100%;
+}
+
+button,
+input{
+  font-family: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: rgb(255, 222, 252);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.container .row{
+  display: flex;
+}
+
+.image.col {
+  padding: 50px 50px 0;
+}
+
+.image.col img {
+  max-width: 300px;
+  display: block;
+}
+
+.calculator.col {
+  display: flex;
+  align-items: center;
+  flex: 1 0 auto;
+  padding: 50px;
+}
+
+.kcal-calculator-body {
+  font-family: inherit;
+}
+
+.kcal-calculator-body .big-title {
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 1.3;
+  padding-bottom: 10px;
+}
+
+.sex-choice {
+  margin-top: 30px;
+  display: flex;
+}
+
+.sex-choice button{
+  flex: 1;
+}
+
+.sex-choice button,
+.submit-wrapper button{
+  background-color: white;
+  border: none;
+  color: black;
+  line-height: 40px;
+  padding: 0 35px;
+  font-size: 16px;
+  border: 2px solid rgb(241, 18, 55);
+  cursor: pointer;
+}
+
+.sex-choice button.active {
+  background-color: rgb(241, 18, 55);
+  color: white;
+}
+
+.inputs-data {
+  display: flex;
+  margin: 30px -5px 0;
+}
+
+.inputs-data .input-wrapper{
+  flex: 1;
+  padding: 0 5px;
+}
+
+.inputs-data .input-wrapper input{
+  background-color: white;
+  border: 1px solid transparent;
+  height: 45px;
+  padding: 0 10px;
+  outline: none;
+}
+
+.inputs-data .input-wrapper input.invalid{
+  border-color: red;
+}
+
+.inputs-data .input-wrapper input:focus{
+  border-color: rgb(93, 93, 93);
+}
+
+.lifestyle-wrapper {
+  display: flex;
+  margin-top: 30px;
+}
+
+.select-title {
+  width: 100px;
+  font-weight: 500;
+}
+
+.lifestyle-wrapper .select-wrapper {
+  flex: 1;
+}
+
+.lifestyle-wrapper .select-wrapper select{
+  width: 100%;
+  height: 45px;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.submit-wrapper{
+  margin-top: 30px;
+}
+
+.submit-wrapper button {
+  background-color: rgb(241, 18, 55);
+  color: white;
+  width: 100%;
+  transition: background-color .4s;
+}
+
+.submit-wrapper button:hover{
+  background-color: black;
+}
+
+.error-wrapper {
+  margin-top: 10px;
+  text-align: center;
+  color: red;
+}
+
+.overlay.active{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgb(241, 18, 55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+}
+
+.overlay span{
+  font-weight: 700;
+  padding: 20px;
+  background-color: white;
+  color: black;
+  margin-left: 20px;
+}

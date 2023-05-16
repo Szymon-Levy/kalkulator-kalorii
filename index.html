@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calories calc</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="image col">
+        <img src="./fit-girl.png" alt="">
+      </div>
+      <div class="calculator col">
+        <div class="kcal-calculator-body">
+          <div class="text-wrapper">
+            <h1 class="big-title">Kalkulator kalorii</h1>
+            <p class="subtitle">Wpisz swoje dane i sprawdź zapotrzebowanie kaloryczne</p>
+          </div>
+
+          <div class="sex-choice">
+            <button class="active" id="male"> <i class="ri-men-line"></i> Mężczyzna</button>
+            <button id="female"> <i class="ri-women-line"></i> Kobieta</button>
+          </div>
+
+          <div class="inputs-data">
+            <div class="input-wrapper">
+              <input type="number" min="1" name="" id="height" placeholder="Wzrost (cm)">
+            </div>
+
+            <div class="input-wrapper">
+              <input type="number" name="" id="weight" placeholder="Waga (kg)">
+            </div>
+
+            <div class="input-wrapper">
+              <input type="number" name="" id="age" placeholder="Wiek (lat)">
+            </div>
+          </div>
+
+          <div class="lifestyle-wrapper">
+            <div class="select-title">Twój tryb życia:</div>
+
+            <div class="select-wrapper">
+              <select id="lifestyle-select">
+                <option selected value="1.0">Leżący lub siedzący tryb życia, brak aktywności fizycznej</option>
+                <option value="1.2">Praca siedząca, aktywność fizyczna na niskim poziomie</option>
+                <option value="1.4">Praca nie fizyczna, trening 2 razy w tygodniu</option>
+                <option value="1.6">Lekka praca fizyczna, trening 3-4 razy w tygodniu</option>
+                <option value="1.8">Praca fizyczna, trening 5 razy w tygodniu</option>
+                <option value="2">Ciężka praca fizyczna, codzienny trening</option>
+            </select>
+            </div>
+          </div>
+
+          <div class="submit-wrapper">
+            <button id="submit-calculator"><i class="ri-calculator-line"></i> Oblicz zapotrzebowanie</button>
+          </div>
+
+          <div class="error-wrapper">
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlay"></div>
+  </div>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
