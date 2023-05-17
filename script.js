@@ -2,6 +2,7 @@ const sexChoiceWrapper = document.querySelector('.kcal-calculator-body .sex-choi
 const submitButton = document.querySelector('.kcal-calculator-body #submit-calculator')
 const errorWrapper = document.querySelector('.kcal-calculator-body .error-wrapper p')
 const overlay = document.querySelector('.overlay')
+const overlayMessage = document.querySelector('.overlay .message')
 let chosenSex = true //true - male, false - female
 
 sexChoiceWrapper.addEventListener('click', (e) => {
@@ -77,10 +78,38 @@ function submitCalculator(){
   
     const caloriesResult = Math.floor(stepA () * lifestyleSelectValue )
 
-    overlay.innerHTML = `Twoje zapotrzebowanie kaloryczne to <span>${caloriesResult} KCAL</span>`
+    overlayMessage.innerHTML = `Twoje zapotrzebowanie kaloryczne to <span>${caloriesResult} KCAL</span>`
     overlay.classList.add('active')
-    console.log(caloriesResult)
+
+    const closeOverlay = document.querySelector('#close-overlay')
+    closeOverlay.addEventListener('click', resetCalculation)
   }
+
+}
+
+function resetCalculation (){
+  const femaleBtn = document.querySelector('.kcal-calculator-body .sex-choice #female')
+  const maleBtn = document.querySelector('.kcal-calculator-body .sex-choice #male')
+  allInputs = document.querySelectorAll('.inputs-data input')
+  const lifestyleSelect = document.querySelector('.kcal-calculator-body #lifestyle-select')
+
+  if(femaleBtn.classList.contains('active')){
+    femaleBtn.classList.remove('active')
+  }
+
+  if(!maleBtn.classList.contains('active')){
+    maleBtn.classList.add('active')
+  }
+
+  lifestyleSelect.value = lifestyleSelect.querySelector('option').value
+
+  allInputs.forEach(el => {
+    el.value = ''
+  })
+  
+  overlay.classList.remove('active')
+
+  chosenSex = true
 
 }
 
