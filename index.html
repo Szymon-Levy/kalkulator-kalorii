@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calories calc</title>
+  <title>Kalkulator kalorii</title>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,7 +13,7 @@
   <div class="container">
     <div class="row">
       <div class="image col">
-        <img src="./fit-girl.png" alt="">
+        <img src="./male.png" alt="">
       </div>
       <div class="calculator col">
         <div class="kcal-calculator-body">
@@ -22,26 +22,26 @@
             <p class="subtitle">Wpisz swoje dane i sprawdź zapotrzebowanie kaloryczne</p>
           </div>
 
-          <div class="sex-choice">
+          <div class="sex-choice spacer-row">
             <button class="active" id="male"> <i class="ri-men-line"></i> Mężczyzna</button>
             <button id="female"> <i class="ri-women-line"></i> Kobieta</button>
           </div>
 
-          <div class="inputs-data">
+          <div class="inputs-data spacer-row">
             <div class="input-wrapper">
               <input type="number" min="1" name="" id="height" placeholder="Wzrost (cm)">
             </div>
 
             <div class="input-wrapper">
-              <input type="number" name="" id="weight" placeholder="Waga (kg)">
+              <input type="number" min="1" name="" id="weight" placeholder="Waga (kg)">
             </div>
 
             <div class="input-wrapper">
-              <input type="number" name="" id="age" placeholder="Wiek (lat)">
+              <input type="number" min="1" name="" id="age" placeholder="Wiek (lat)">
             </div>
           </div>
 
-          <div class="lifestyle-wrapper">
+          <div class="lifestyle-wrapper select-row spacer-row">
             <div class="select-title">Twój tryb życia:</div>
 
             <div class="select-wrapper">
@@ -56,7 +56,19 @@
             </div>
           </div>
 
-          <div class="submit-wrapper">
+          <div class="goal-wrapper select-row spacer-row">
+            <div class="select-title">Cel diety:</div>
+
+            <div class="select-wrapper">
+              <select id="goal-select">
+                <option selected value="0">Utrzymanie wagi</option>
+                <option value="1">Nabranie masy</option>
+                <option value="-1">Redukcja masy</option>
+            </select>
+            </div>
+          </div>
+
+          <div class="submit-wrapper spacer-row">
             <button id="submit-calculator"><i class="ri-calculator-line"></i> Oblicz zapotrzebowanie</button>
           </div>
 

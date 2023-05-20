@@ -6,12 +6,17 @@ const overlayMessage = document.querySelector('.overlay .message')
 let chosenSex = true //true - male, false - female
 
 sexChoiceWrapper.addEventListener('click', (e) => {
+  const modelImage = document.querySelector('.image.col img')
   e.target.classList.add('active')
   if (e.target.id === 'male'){
     document.querySelector('.kcal-calculator-body .sex-choice #female').classList.remove('active')
+    modelImage.src = './male.png'
+    document.documentElement.classList.remove('female')
     chosenSex = true
   } else{
     document.querySelector('.kcal-calculator-body .sex-choice #male').classList.remove('active')
+    modelImage.src = './female.png'
+    document.documentElement.classList.add('female')
     chosenSex = false
   }
 })
@@ -63,7 +68,7 @@ function stepA (){
     } else{
       stepAResult = 655 + (9.6 * weight) + (1.85 * height) - (4.7 * age)
     }
-    return Math.floor(stepAResult)
+    return stepAResult
   }
   else{
     return false
@@ -75,10 +80,26 @@ function submitCalculator(){
   if (stepA()){
     const lifestyleSelect = document.querySelector('.kcal-calculator-body #lifestyle-select')
     const lifestyleSelectValue = lifestyleSelect.value
-  
-    const caloriesResult = Math.floor(stepA () * lifestyleSelectValue )
 
-    overlayMessage.innerHTML = `Twoje zapotrzebowanie kaloryczne to <span>${caloriesResult} KCAL</span>`
+    const goalSelect = document.querySelector('.kcal-calculator-body #goal-select')
+    const goalSelectValue = +goalSelect.value
+  
+    let caloriesResult = stepA () * lifestyleSelectValue
+
+    let goal
+    if (goalSelectValue === 0){
+      goal = 'na utrzymanie masy'
+    } else if (goalSelectValue === 1){
+      goal = 'do budowania masy'
+      caloriesResult+= caloriesResult * 0.15
+    } else if (goalSelectValue === -1){
+      goal = 'do redukowania masy'
+      caloriesResult-= caloriesResult * 0.15
+    }
+
+    caloriesResult = caloriesResult.toFixed()
+
+    overlayMessage.innerHTML = `Twoje zapotrzebowanie kaloryczne ${goal} to: <span>${caloriesResult} KCAL</span>`
     overlay.classList.add('active')
 
     const closeOverlay = document.querySelector('#close-overlay')
@@ -92,6 +113,7 @@ function resetCalculation (){
   const maleBtn = document.querySelector('.kcal-calculator-body .sex-choice #male')
   allInputs = document.querySelectorAll('.inputs-data input')
   const lifestyleSelect = document.querySelector('.kcal-calculator-body #lifestyle-select')
+  const goalSelect = document.querySelector('.kcal-calculator-body #goal-select')
 
   if(femaleBtn.classList.contains('active')){
     femaleBtn.classList.remove('active')
@@ -102,6 +124,7 @@ function resetCalculation (){
   }
 
   lifestyleSelect.value = lifestyleSelect.querySelector('option').value
+  goalSelect.value = goalSelect.querySelector('option').value
 
   allInputs.forEach(el => {
     el.value = ''
@@ -114,4 +137,3 @@ function resetCalculation (){
 }
 
 submitButton.addEventListener('click', submitCalculator)
-

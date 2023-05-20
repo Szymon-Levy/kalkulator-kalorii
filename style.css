@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
+html{
+  --main-color: rgb(9, 84, 189);
+  --light-bg: rgb(196, 220, 255);
+  --error-color: red;
+}
+
+html.female{
+  --main-color: rgb(241 18 148);
+  --light-bg: rgb(255, 222, 252);
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -29,7 +40,7 @@ input{
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  background-color: rgb(255, 222, 252);
+  background-color: var(--light-bg);
   border-radius: 20px;
   position: relative;
   overflow: hidden;
@@ -41,10 +52,10 @@ input{
 
 .image.col {
   padding: 50px 50px 0;
+  flex: 0 0 400px;
 }
 
 .image.col img {
-  max-width: 300px;
   display: block;
 }
 
@@ -67,8 +78,11 @@ input{
   padding-bottom: 10px;
 }
 
-.sex-choice {
+.spacer-row{
   margin-top: 30px;
+}
+
+.sex-choice {
   display: flex;
 }
 
@@ -84,18 +98,20 @@ input{
   line-height: 40px;
   padding: 0 35px;
   font-size: 16px;
-  border: 2px solid rgb(241, 18, 55);
+  border: 2px solid var(--main-color);
   cursor: pointer;
+  transition: background-color .4s, border-color .4s;
 }
 
 .sex-choice button.active {
-  background-color: rgb(241, 18, 55);
+  background-color: var(--main-color);
   color: white;
 }
 
 .inputs-data {
   display: flex;
-  margin: 30px -5px 0;
+  margin-left: -5px;
+  margin-right: -5px;
 }
 
 .inputs-data .input-wrapper{
@@ -113,28 +129,27 @@ input{
 }
 
 .inputs-data .input-wrapper input.invalid{
-  border-color: red;
+  border-color: var(--error-color);
 }
 
 .inputs-data .input-wrapper input:focus{
   border-color: rgb(93, 93, 93);
 }
 
-.lifestyle-wrapper {
+.select-row {
   display: flex;
-  margin-top: 30px;
 }
 
-.select-title {
-  width: 100px;
+.select-row .select-title {
+  width: 150px;
   font-weight: 500;
 }
 
-.lifestyle-wrapper .select-wrapper {
+.select-row .select-wrapper {
   flex: 1;
 }
 
-.lifestyle-wrapper .select-wrapper select{
+.select-row .select-wrapper select{
   width: 100%;
   height: 45px;
   border: none;
@@ -144,12 +159,8 @@ input{
   font-size: 14px;
 }
 
-.submit-wrapper{
-  margin-top: 30px;
-}
-
 .submit-wrapper button {
-  background-color: rgb(241, 18, 55);
+  background-color: var(--main-color);
   color: white;
   width: 100%;
   transition: background-color .4s;
@@ -162,7 +173,7 @@ input{
 .error-wrapper {
   margin-top: 10px;
   text-align: center;
-  color: red;
+  color: var(--error-color);
 }
 
 .overlay{
@@ -173,7 +184,7 @@ input{
   height: 100%;
   left: 0;
   top: 0;
-  background-color: rgb(241, 18, 55);
+  background-color: var(--main-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -199,8 +210,11 @@ input{
   }
 }
 
-.overlay .message{
+.overlay .message {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .overlay.active .message{
@@ -212,7 +226,7 @@ input{
   padding: 20px;
   background-color: white;
   color: black;
-  margin-left: 20px;
+  margin-top: 20px;
 }
 
 #close-overlay {
@@ -231,7 +245,7 @@ input{
 
 @media screen and (max-width: 950px) {
   .image.col {
-    flex: 1 0 280px;
+    flex: 1 0 300px;
     padding: 50px 0 0;
   }
   .kcal-calculator-body .big-title {
@@ -266,7 +280,7 @@ input{
     flex: 1 1 100%;
     margin-bottom: 10px;
   }
-  .lifestyle-wrapper {
+  .select-row {
     flex-wrap: wrap;
   }
   .select-title {
