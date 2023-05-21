@@ -3,10 +3,10 @@ const submitButton = document.querySelector('.kcal-calculator-body #submit-calcu
 const errorWrapper = document.querySelector('.kcal-calculator-body .error-wrapper p')
 const overlay = document.querySelector('.overlay')
 const overlayMessage = document.querySelector('.overlay .message')
+const modelImage = document.querySelector('.image.col img')
 let chosenSex = true //true - male, false - female
 
 sexChoiceWrapper.addEventListener('click', (e) => {
-  const modelImage = document.querySelector('.image.col img')
   e.target.classList.add('active')
   if (e.target.id === 'male'){
     document.querySelector('.kcal-calculator-body .sex-choice #female').classList.remove('active')
@@ -122,6 +122,12 @@ function resetCalculation (){
   if(!maleBtn.classList.contains('active')){
     maleBtn.classList.add('active')
   }
+
+  if (document.documentElement.classList.contains('female')) {
+    document.documentElement.classList.remove('female')
+  }
+
+  modelImage.src = './male.png'
 
   lifestyleSelect.value = lifestyleSelect.querySelector('option').value
   goalSelect.value = goalSelect.querySelector('option').value
